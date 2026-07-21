@@ -39,9 +39,9 @@ console.log(`Variable: number1 have type: ${typeof number1}`);
 console.log(`Variable: string1 have type: ${typeof string1}`);
 console.log(`Variable: boolean1 have type: ${typeof boolean1}`);
 
-/*let userNamePrompt = prompt('What is your name?');
+let userNamePrompt = prompt('What is your name?');
 let userAgePrompt = prompt('What is your age?');
-console.log(`Your name is ${userNamePrompt}, you are ${userAgePrompt} years old`);*/
+console.log(`Your name is ${userNamePrompt}, you are ${userAgePrompt} years old`);
 
 let a1 = 4;
 let b1 = 3;
