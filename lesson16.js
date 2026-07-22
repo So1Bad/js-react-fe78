@@ -15,7 +15,8 @@ console.log(`My age in seconds: ${myAgeInSeconds}`);
 let count = 42
 let userName = '42'
 const countString1 = String(count);
-const countString2 = count.toString;
+const countString2 = count.toString();
+console.log(typeof countString2);
 let userNameNumber = Number(userName);
 userNameNumber = +userName;
 
