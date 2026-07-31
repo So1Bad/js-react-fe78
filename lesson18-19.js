@@ -86,30 +86,30 @@ function breakChocolate(n, m) {
 }
 console.log(breakChocolate(4, 3));
 
-// const taxRate = 0.20;
-// const phonePrice = 120;
-// const accessoryPrice = 9;
-// let bankBalance = Number(prompt("Введите ваш банковский баланс ($):")) || 0;
-// let totalPrice = 0;
-// let phoneCount = 0
-// function calculateTax(totalPrice) {
-//    return totalPrice * taxRate;
-// }
-// function formatPrice(totalPrice) {
-//    return totalPrice.toFixed(2) + '$';
-// }
-// while (totalPrice + phonePrice + accessoryPrice <= bankBalance) {
-//    totalPrice += phonePrice + accessoryPrice;
-//    phoneCount += 1;
-// }
-// const totalWithTax = totalPrice + calculateTax(totalPrice);
-// console.log(`Количество ваших товаров: ${phoneCount}, на общую сумму: ${formatPrice(totalPrice)}`);
-// console.log(`Сумма покупки с учетом налога: ${formatPrice(totalWithTax)}`);
-// if (totalWithTax <= bankBalance) {
-//    console.log("Вы можете это купить");
-// } else {
-//    console.log('У вас не достаточно средств!');
-// }
+const taxRate = 0.20;
+const phonePrice = 120;
+const accessoryPrice = 9;
+let bankBalance = Number(prompt("Введите ваш банковский баланс ($):")) || 0;
+let totalPrice = 0;
+let phoneCount = 0
+function calculateTax(totalPrice) {
+   return totalPrice * taxRate;
+}
+function formatPrice(totalPrice) {
+   return totalPrice.toFixed(2) + '$';
+}
+while (totalPrice + phonePrice + accessoryPrice <= bankBalance) {
+   totalPrice += phonePrice + accessoryPrice;
+   phoneCount += 1;
+}
+const totalWithTax = totalPrice + calculateTax(totalPrice);
+console.log(`Количество ваших товаров: ${phoneCount}, на общую сумму: ${formatPrice(totalPrice)}`);
+console.log(`Сумма покупки с учетом налога: ${formatPrice(totalWithTax)}`);
+if (totalWithTax <= bankBalance) {
+   console.log("Вы можете это купить");
+} else {
+   console.log('У вас не достаточно средств!');
+}
 
 
 //LESSON 19
@@ -162,19 +162,19 @@ for (let person in salaries) {
 const averageSalary = totalSalaries / keyCounter;
 console.log(averageSalary);
 
-// const userLogin = prompt("Придумайте логин:");
-// const userPassword = prompt("Придумайте пароль:");
-// const user = {
-//    login: userLogin,
-//    password: userPassword,
-// };
-// const confirmLogin = prompt("Введите логин для входа:");
-// const confirmPassword = prompt("Введите пароль для входа:");
-// if (confirmLogin === user.login && confirmPassword === user.password) {
-//    alert("Добро пожаловать!");
-// } else {
-//    alert("Неверный логин или пароль!");
-// }
+const userLogin = prompt("Придумайте логин:");
+const userPassword = prompt("Придумайте пароль:");
+const user = {
+   login: userLogin,
+   password: userPassword,
+};
+const confirmLogin = prompt("Введите логин для входа:");
+const confirmPassword = prompt("Введите пароль для входа:");
+if (confirmLogin === user.login && confirmPassword === user.password) {
+   alert("Добро пожаловать!");
+} else {
+   alert("Неверный логин или пароль!");
+}
 
 const numberToWords = {
    0: 'ноль',
