@@ -24,8 +24,11 @@ function calcCredit(totalAmount) {
 console.log(calcCredit(9000));
 
 function trimString(str, start, end) {
-   const changedStr = str.slice((start - 1), (end - 1));
-   return changedStr;
+   let result = '';
+   for (let i = start - 1; i <= end - 1; i++) {
+      result += str[i];
+   }
+   return result;
 }
 console.log(trimString('Привет ывфвфывфыв ыфвдо!', 3, 10));
 
