@@ -42,22 +42,18 @@ const binaryStr = binary.join(1);
 console.log(binaryStr);
 
 const someTxt = 'Топот';
-const txtArr = someTxt.toLowerCase().split('');
-const txtArrRev = txtArr.toReversed();
-let txtBool = false;
-for (let i = 0; i < txtArr.length; i++) {
-   if (txtArr[i] === txtArrRev[i]) {
-      txtBool = true;
+function isPalindrome(word) {
+   const txtArr = word.toLowerCase().split('');
+   txtArr.reverse();
+   const someTxtRev = txtArr.join("");
+   console.log(someTxtRev);
+   if (word.toLowerCase() === someTxtRev) {
+      console.log(`Слово ${word} является палиндромом`)
    } else {
-      txtBool = false;
-      break;
+      console.log(`Слово ${word} не является палиндромом`)
    }
 }
-if (txtBool) {
-   console.log(`Слово ${someTxt} является палиндромом`)
-} else {
-   console.log(`Слово ${someTxt} не является палиндромом`)
-}
+isPalindrome(someTxt);
 
 const matrix = [
    [12, 98, 78, 65, 23],
