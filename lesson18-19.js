@@ -25,7 +25,7 @@ console.log(calcCredit(9000));
 
 function trimString(str, start, end) {
    let result = '';
-   for (let i = start - 1; i <= end - 1; i++) {
+   for (let i = start; i <= end; i++) {
       result += str[i];
    }
    return result;
