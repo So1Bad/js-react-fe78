@@ -101,7 +101,7 @@ console.log(countCharCode('ACD'));
 console.log(countCharCode('asdCXSyuortyC'));
 
 const duplicatedBracket = str => {
-   const strArr = str.toLowerCase();
+   const strArr = str.toLowerCase().split('');
    return strArr.map((char) => {
       if (strArr.indexOf(char) === strArr.lastIndexOf(char)) {
          return '('
