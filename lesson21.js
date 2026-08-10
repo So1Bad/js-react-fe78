@@ -42,21 +42,21 @@ function Student(name, rate, salary) {
       }
    }
 }
-const student1 = new Student('Андрей', 'A', 1500)
-const student2 = new Student('Карина', 'B', 800)
-const student3 = new Student('Анастасия', 'A', 600)
-const student4 = new Student('Алексей', 'D', 1200)
-const student5 = new Student('Татьяна', 'C', 900)
-const students = [];
-students.push(student1, student2, student3, student4, student5);
+const students = [
+   new Student('Андрей', 'A', 1500),
+   new Student('Карина', 'B', 800),
+   new Student('Анастасия', 'A', 600),
+   new Student('Алексей', 'D', 1200),
+   new Student('Татьяна', 'C', 900)
+];
 console.log(students);
-const totalCredit = students.reduce((acc, credit, index) => {
-   credit = students[index].calcCredit();
-   return acc + credit;
+const totalCredit = students.reduce((acc, student) => {
+   return acc + student.calcCredit();
 }, 0);
 console.log(`Общая сумма кредитов которую можно выдать группе: ${totalCredit}`);
 
-const changedStr = str => str.split('').filter((char) => char !== 'a' && char !== 'e' && char !== 'i' && char !== 'o' && char !== 'u' && char !== 'A' && char !== 'E' && char !== 'I' && char !== 'O' && char !== 'U').join('');
+const vowels = ['a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U'];
+const changedStr = str => str.split('').filter((char) => !vowels.includes(char)).join('');
 console.log(changedStr("This website is for losers LOL!"));
 
 const accum = str => str.split('').reduce((acc, char, index) => {
