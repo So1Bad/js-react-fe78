@@ -3,7 +3,7 @@ const root = document.getElementById('root');
 const createDomElement = (tag, options) => {
    const newElement = document.createElement(tag);
    if (options.className) {
-      newElement.classList.add(options.className)
+      newElement.className = options.className
    }
    if (options.textContent) {
       newElement.textContent = options.textContent
@@ -16,14 +16,11 @@ const createDomElement = (tag, options) => {
 const container = createDomElement('div', {
    className: 'container'
 });
-root.insertAdjacentElement('afterbegin', container);
 const wrapper = createDomElement('div', {
    className: 'todo__wrapper'
 })
-container.insertAdjacentElement('afterbegin', wrapper);
-console.log(container);
 const deleteAllButton = createDomElement('button', {
-   className: 'todo__button',
+   className: 'todo__button deleteAllBtn',
    textContent: 'Delete All'
 })
 const input = createDomElement('input', {
@@ -31,7 +28,7 @@ const input = createDomElement('input', {
    placeholder: 'Enter todo ...'
 })
 const addButton = createDomElement('button', {
-   className: 'todo__button',
+   className: 'todo__button addBtn',
    textContent: 'Add'
 })
 const fragment = document.createDocumentFragment();
@@ -40,7 +37,7 @@ wrapper.prepend(fragment)
 const todoList = createDomElement('div', {
    className: 'todo__list'
 });
-container.append(todoList);
+container.append(wrapper, todoList);
 
 const createTodoItem = (text) => {
    const item = createDomElement('div', {
@@ -68,32 +65,55 @@ const createTodoItem = (text) => {
    });
    rightBlock.append(deleteButton, date);
    item.append(completeButton, todoText, rightBlock);
-   deleteButton.addEventListener('click', () => item.remove());
-   completeButton.addEventListener('click', () => {
-      item.classList.toggle('todo__item-done')
-      completeButton.classList.toggle('todo__complete-active');
-      if (completeButton.classList.contains('todo__complete-active')) {
-         completeButton.textContent = '✓';
-      } else {
-         completeButton.textContent = '';
-      }
-   });
-
    return item;
 }
-addButton.addEventListener('click', () => {
-   const todoText = input.value.trim();
 
-   if (todoText === '') {
-      alert('Введите текст задачи!');
-      return;
+todoList.addEventListener('click', (e) => {
+   const target = e.target;
+   console.log(e.target);
+
+   const item = target.closest('.todo__item');
+   console.log('item', item);
+
+   if (!item) return;
+
+   if (target.classList.contains('todo__deleteBtn')) {
+      item.remove();
    }
 
-   const newTodo = createTodoItem(todoText);
-   todoList.append(newTodo);
-
-   input.value = '';
+   if (target.classList.contains('todo__completeBtn')) {
+      item.classList.toggle('todo__item-done');
+      target.classList.toggle('todo__complete-active');
+      if (target.classList.contains('todo__complete-active')) {
+         target.textContent = '✓';
+      } else {
+         target.textContent = '';
+      }
+   }
 });
-deleteAllButton.addEventListener('click', () => {
-   todoList.replaceChildren();
+
+wrapper.addEventListener('click', (e) => {
+   if (e.target.classList.contains('addBtn')) {
+      const todoText = input.value.trim();
+
+      if (todoText === '') {
+         alert('Введите текст задачи!');
+         return;
+      }
+
+      const newTodo = createTodoItem(todoText);
+      todoList.append(newTodo);
+
+      input.value = '';
+   }
+   if (e.target.classList.contains('deleteAllBtn')) {
+      todoList.replaceChildren();
+   }
 })
+input.addEventListener('keydown', (e) => {
+   if (e.key === 'Enter') {
+      addButton.click();
+   }
+})
+
+root.insertAdjacentElement('afterbegin', container)
