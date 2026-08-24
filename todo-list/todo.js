@@ -143,7 +143,7 @@ wrapper.addEventListener('click', (e) => {
    if (e.target.classList.contains('deleteAllBtn')) {
       todosArray = [];
       saveTodosToLocalStorage(todosArray);
-      todoList.replaceChildren();
+      renderTodos(todosArray);
    }
 })
 input.addEventListener('keydown', (e) => {
