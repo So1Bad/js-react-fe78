@@ -1,0 +1,51 @@
+body {
+   background-color: black;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+}
+
+.timer-container {
+   text-align: center;
+   background: white;
+   padding: 30px;
+   border-radius: 12px;
+}
+
+.timer-display {
+   font-size: 60px;
+   font-weight: 700;
+   color: black;
+   margin-bottom: 20px;
+}
+
+.controls {
+   display: flex;
+   gap: 25px;
+}
+
+.btn {
+   padding: 10px 25px;
+   font-size: 25px;
+   border-radius: 12px;
+}
+
+.start {
+   background-color: green;
+   color: white;
+}
+
+.pause {
+   background-color: blue;
+   color: white;
+}
+
+.stop {
+   background-color: red;
+   color: white;
+}
+
+.btn:disabled {
+   background-color: #cccccc;
+   cursor: not-allowed;
+}
