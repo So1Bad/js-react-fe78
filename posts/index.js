@@ -1,7 +1,7 @@
 const postsContainer = document.getElementById('posts');
 
 function loadPost(id) {
-   return fetch(`https://jsonplaceholder.typicode.com/posts/${id}`)
+   return fetch(`${URL}/${id}`)
       .then((response) => {
          if (!response.ok) {
             throw new Error(`Ошибка загрузки поста ${id}: ${response.status}`);
@@ -52,7 +52,7 @@ postIds.reduce((promise, id) => {
 async function loadAndRenderPosts() {
    try {
       const promises = postIds.map(id =>
-         fetch(`https://jsonplaceholder.typicode.com/posts/${id}`)
+         fetch(`${URL}/${id}`)
             .then(res => {
                if (!res.ok) throw new Error(`Ошибка: ${res.status}`);
                return res.json();
