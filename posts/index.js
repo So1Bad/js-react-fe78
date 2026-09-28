@@ -51,17 +51,13 @@ postIds.reduce((promise, id) => {
 
 async function loadAndRenderPosts() {
    try {
-      const promises = postIds.map(id =>
-         fetch(`${URL}/${id}`)
-            .then(res => {
-               if (!res.ok) throw new Error(`Ошибка: ${res.status}`);
-               return res.json();
-            })
-      );
+      const promises = postIds.map(id => loadPost(id));
 
-      const posts = await Promise.all(promises);
+      const posts = await Promise.allSettled(promises);
+      const successfulPosts = posts.filter(result => result.status === 'fulfilled').map(result => result.value);
+      console.log(successfulPosts);
       console.log(posts)
-      renderPostText(posts);
+      renderPostText(successfulPosts);
    } catch (error) {
       console.error("Произошла ошибка при загрузке:", error);
    }
