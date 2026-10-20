@@ -1,0 +1,51 @@
+.button--menu,
+.button--close {
+   min-width: 60px;
+   width: 60px;
+   height: 60px;
+   padding: 0;
+   background: #1e29a8;
+   border: none;
+
+   display: inline-flex;
+   align-items: center;
+   justify-content: center;
+   position: relative;
+}
+
+.button--menu:hover,
+.button--close:hover {
+   background: #161e80;
+}
+
+.button__icon-lines,
+.button__icon-lines::before,
+.button__icon-lines::after {
+   content: "";
+   display: block;
+   width: 24px;
+   height: 2px;
+   background-color: white;
+   position: absolute;
+   transition: transform 0.2s ease;
+}
+
+.button--menu .button__icon-lines::before {
+   transform: translateY(-8px);
+}
+
+.button--menu .button__icon-lines::after {
+   transform: translateY(8px);
+}
+
+.button--close .button__icon-lines {
+   background-color: transparent;
+}
+
+.button--close .button__icon-lines::before {
+   transform: rotate(45deg);
+}
+
+.button--close .button__icon-lines::after {
+   transform: rotate(-45deg);
+}
